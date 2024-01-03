@@ -5,8 +5,9 @@ RM = rm -f
 
 LIBFT = libft_extended/libft.a
 
-SRC = prova.c \
-error.c
+SRC = main.c \
+utils.c \
+free.c
 
 OBJ = $(SRC:.c=.o)
 

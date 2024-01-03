@@ -6,7 +6,7 @@
 /*   By: marboccu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 12:54:27 by marboccu          #+#    #+#             */
-/*   Updated: 2023/12/24 17:54:31 by marboccu         ###   ########.fr       */
+/*   Updated: 2023/12/24 19:56:41 by marboccu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,19 @@ typedef struct s_pipex
 	int pipe[2];
 	int pid_child1;
 	int pid_child2;
-	char **cmds_args;
-	char **cmd_path;
-	char *cmd;
+	char **cmd_args;
+	char **cmd_paths;
 	char *path;
+	char *env_path;
 	int fd_in;
 	int fd_out;
 } t_pipex;
 
 void err_msg(char *str);
+int ft_open_file(char *file, int rd_or_wr);
+char *ft_get_path(char **envp);
+char *ft_get_cmd_path(char *cmd, char **paths);
+void ft_free_pipex(t_pipex *pipex);
+void ft_free_child(t_pipex *pipex);
 
 #endif
