@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marboccu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 20:01:40 by marboccu          #+#    #+#             */
-/*   Updated: 2024/01/06 18:51:40 by marboccu         ###   ########.fr       */
+/*   Created: 2024/01/06 18:52:14 by marboccu          #+#    #+#             */
+/*   Updated: 2024/01/06 18:53:32 by marboccu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void ft_free_pipex(t_pipex *pipex)
+void ft_close_fd(int fd)
 {
-	int i;
-
-	i = 0;
-	while (pipex->cmd_paths[i])
+	while (fd < 256)
 	{
-		free(pipex->cmd_paths[i]);
-		i++;
+		close(fd);
+		fd++;
 	}
-	free(pipex->cmd_paths);
 }
 
-void ft_free_child(t_pipex *pipex)
+void ft_close_pipe(t_pipex *pipex)
 {
-	int i;
-
-	i = 0;
-	while (pipex->cmd_args[i])
-	{
-		free(pipex->cmd_args[i]);
-		i++;
-	}
-	free(pipex->cmd_args);
-	free(pipex->path);
+	close(pipex->pipe[READ_END]);
+	close(pipex->pipe[WRITE_END]);
+	ft_close_fd(3);
 }

@@ -7,7 +7,9 @@ LIBFT = libft_extended/libft.a
 
 SRC = main.c \
 utils.c \
-free.c
+free.c \
+close.c \
+execute.c
 
 OBJ = $(SRC:.c=.o)
 

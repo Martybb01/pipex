@@ -6,7 +6,7 @@
 /*   By: marboccu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 12:54:27 by marboccu          #+#    #+#             */
-/*   Updated: 2024/01/06 14:30:52 by marboccu         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:14:43 by marboccu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,19 @@ typedef struct s_pipex
 
 void err_msg(char *str);
 int ft_open_file(char *file, int rd_or_wr);
+
 char *ft_get_path(char **envp);
 char *ft_get_cmd_path(char *cmd, char **paths);
+void ft_check_paths(t_pipex *pipex, char **envp);
+
 void ft_free_pipex(t_pipex *pipex);
 void ft_free_child(t_pipex *pipex);
+
 void ft_close_fd(int fd);
+void ft_close_pipe(t_pipex *pipex);
+
+void ft_firstchild_exec(t_pipex *pipex, char **av, char **envp);
+void ft_secondchild_exec(t_pipex *pipex, char **av, char **envp);
+void ft_pipe_exec(t_pipex *pipex, char **av, char **envp);
 
 #endif
