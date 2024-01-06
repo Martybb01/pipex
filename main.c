@@ -6,7 +6,7 @@
 /*   By: marboccu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 21:29:17 by marboccu          #+#    #+#             */
-/*   Updated: 2024/01/06 14:43:29 by marboccu         ###   ########.fr       */
+/*   Updated: 2024/01/06 14:51:33 by marboccu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void ft_firstchild_exec(t_pipex *pipex, char **av, char **envp)
 	}
 	else
 		execve(pipex->path, pipex->cmd_args, envp);
-	ft_close_fd(3);
 }
 
 void ft_secondchild_exec(t_pipex *pipex, char **av, char **envp)
