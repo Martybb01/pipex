@@ -6,7 +6,7 @@
 /*   By: marboccu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 12:54:27 by marboccu          #+#    #+#             */
-/*   Updated: 2023/12/24 19:56:41 by marboccu         ###   ########.fr       */
+/*   Updated: 2024/01/06 14:30:52 by marboccu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ char *ft_get_path(char **envp);
 char *ft_get_cmd_path(char *cmd, char **paths);
 void ft_free_pipex(t_pipex *pipex);
 void ft_free_child(t_pipex *pipex);
+void ft_close_fd(int fd);
 
 #endif

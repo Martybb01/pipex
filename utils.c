@@ -6,7 +6,7 @@
 /*   By: marboccu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 12:56:17 by marboccu          #+#    #+#             */
-/*   Updated: 2023/12/28 19:21:50 by marboccu         ###   ########.fr       */
+/*   Updated: 2024/01/06 14:43:00 by marboccu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,22 @@ int ft_open_file(char *file, int rd_or_wr)
 	int fd;
 
 	if (rd_or_wr == 0)
+	{
 		fd = open(file, O_RDONLY, 0777);
-	if (rd_or_wr == 1)
+		if (fd < 0)
+		{
+			ft_close_fd(3);
+			err_msg("OPEN");
+		}
+	}
+	else if (rd_or_wr == 1)
+	{
 		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	if (fd < 0)
-		err_msg("OPEN");
-	if (access(file, F_OK) == -1)
-		err_msg("File does not exist");
+		if (fd < 0)
+		{
+			err_msg("OPEN");
+		}
+	}
 	return (fd);
 }
 

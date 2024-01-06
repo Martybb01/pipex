@@ -6,7 +6,7 @@
 /*   By: marboccu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 20:01:40 by marboccu          #+#    #+#             */
-/*   Updated: 2023/12/24 20:01:55 by marboccu         ###   ########.fr       */
+/*   Updated: 2024/01/06 12:33:48 by marboccu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void ft_free_pipex(t_pipex *pipex)
 	int i;
 
 	i = 0;
+	// close(pipex->fd_in);
+	// close(pipex->fd_out);
 	while (pipex->cmd_paths[i])
 	{
 		free(pipex->cmd_paths[i]);
