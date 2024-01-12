@@ -12,9 +12,9 @@
 
 #include "pipex.h"
 
-void ft_free_pipex(t_pipex *pipex)
+void	ft_free_pipex(t_pipex *pipex)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (pipex->cmd_paths[i])
@@ -25,9 +25,9 @@ void ft_free_pipex(t_pipex *pipex)
 	free(pipex->cmd_paths);
 }
 
-void ft_free_child(t_pipex *pipex)
+void	ft_free_child(t_pipex *pipex)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (pipex->cmd_args[i])

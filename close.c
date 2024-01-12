@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-void ft_close_fd(int fd)
+void	ft_close_fd(int fd)
 {
 	while (fd < 256)
 	{
@@ -21,7 +21,7 @@ void ft_close_fd(int fd)
 	}
 }
 
-void ft_close_pipe(t_pipex *pipex)
+void	ft_close_pipe(t_pipex *pipex)
 {
 	close(pipex->pipe[READ_END]);
 	close(pipex->pipe[WRITE_END]);

@@ -12,18 +12,17 @@
 
 #include "pipex.h"
 
-void err_msg(char *str)
+void	err_msg(char *str)
 {
 	perror(str);
 	exit(EXIT_FAILURE);
 }
 
-int ft_open_file(char *file, int rd_or_wr)
+int	ft_open_file(char *file, int rd_or_wr)
 {
-	int fd;
+	int	fd;
 
 	fd = 0;
-
 	if (rd_or_wr == 0)
 	{
 		fd = open(file, O_RDONLY, 0777);
@@ -40,9 +39,9 @@ int ft_open_file(char *file, int rd_or_wr)
 	return (fd);
 }
 
-char *ft_get_path(char **envp)
+char	*ft_get_path(char **envp)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (envp[i])
@@ -54,11 +53,11 @@ char *ft_get_path(char **envp)
 	return (NULL);
 }
 
-char *ft_get_cmd_path(char *cmd, char **paths)
+char	*ft_get_cmd_path(char *cmd, char **paths)
 {
-	int i;
-	char *cmd_path;
-	char *temp;
+	int		i;
+	char	*cmd_path;
+	char	*temp;
 
 	i = 0;
 	while (paths[i])
@@ -74,11 +73,10 @@ char *ft_get_cmd_path(char *cmd, char **paths)
 	return (NULL);
 }
 
-void ft_check_paths(t_pipex *pipex, char **envp)
+void	ft_check_paths(t_pipex *pipex, char **envp)
 {
 	pipex->env_path = ft_get_path(envp);
 	pipex->cmd_paths = ft_split(pipex->env_path, ':');
-
 	if (!pipex->cmd_paths)
 	{
 		ft_free_pipex(pipex);
